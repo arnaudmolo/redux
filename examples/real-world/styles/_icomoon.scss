@@ -1,13 +1,13 @@
-// @font-face {
-// 	font-family: 'already-cool';
-// 	src:url('../fonts/icomoon/already-cool.eot?-5kxfei');
-// 	src:url('../fonts/icomoon/already-cool.eot?#iefix-5kxfei') format('embedded-opentype'),
-// 		url('../fonts/icomoon/already-cool.woff?-5kxfei') format('woff'),
-// 		url('../fonts/icomoon/already-cool.ttf?-5kxfei') format('truetype'),
-// 		url('../fonts/icomoon/already-cool.svg?-5kxfei#already-cool') format('svg');
-// 	font-weight: normal;
-// 	font-style: normal;
-// }
+@font-face {
+	font-family: 'already-cool';
+	src:url('../fonts/icomoon/already-cool.eot');
+	src:url('../fonts/icomoon/already-cool.eot?#iefi') format('embedded-opentype'),
+		url('../fonts/icomoon/already-cool.woff') format('woff'),
+		url('../fonts/icomoon/already-cool.ttf') format('truetype'),
+		url('../fonts/icomoon/already-cool.svg#already-cool') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
 [class^="icon-"],
 [class*=" icon-"] {
