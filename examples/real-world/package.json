@@ -16,6 +16,7 @@
   "homepage": "http://redux.js.org",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
+    "classnames": "^2.2.3",
     "compass-mixins": "github:igosuki/compass-mixins",
     "humps": "^0.6.0",
     "isomorphic-fetch": "^2.1.1",
