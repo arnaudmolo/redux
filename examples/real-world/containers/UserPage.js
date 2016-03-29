@@ -12,11 +12,21 @@ function loadData(props) {
   props.loadStarred(login)
 }
 
+const renderRepo = ([ repo, owner ]) =>
+  <Repo repo={repo}
+        owner={owner}
+        key={repo.fullName} />
+
 class UserPage extends Component {
-  constructor(props) {
-    super(props)
-    this.renderRepo = this.renderRepo.bind(this)
-    this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this)
+
+  static propTypes = {
+    login: PropTypes.string.isRequired,
+    user: PropTypes.object,
+    starredPagination: PropTypes.object,
+    starredRepos: PropTypes.array.isRequired,
+    starredRepoOwners: PropTypes.array.isRequired,
+    loadUser: PropTypes.func.isRequired,
+    loadStarred: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -27,18 +37,6 @@ class UserPage extends Component {
     if (nextProps.login !== this.props.login) {
       loadData(nextProps)
     }
-  }
-
-  handleLoadMoreClick() {
-    this.props.loadStarred(this.props.login, true)
-  }
-
-  renderRepo([ repo, owner ]) {
-    return (
-      <Repo repo={repo}
-            owner={owner}
-            key={repo.fullName} />
-    )
   }
 
   render() {
@@ -52,24 +50,14 @@ class UserPage extends Component {
       <div>
         <User user={user} />
         <hr />
-        <List renderItem={this.renderRepo}
+        <List renderItem={renderRepo}
               items={zip(starredRepos, starredRepoOwners)}
-              onLoadMoreClick={this.handleLoadMoreClick}
+              onLoadMoreClick={() => props.loadStarred(login, true)}
               loadingLabel={`Loading ${login}’s starred...`}
               {...starredPagination} />
       </div>
     )
   }
-}
-
-UserPage.propTypes = {
-  login: PropTypes.string.isRequired,
-  user: PropTypes.object,
-  starredPagination: PropTypes.object,
-  starredRepos: PropTypes.array.isRequired,
-  starredRepoOwners: PropTypes.array.isRequired,
-  loadUser: PropTypes.func.isRequired,
-  loadStarred: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, ownProps) {
