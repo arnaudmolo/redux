@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router'
 
-const Button = props =>
+const Button = (props) =>
   <div>
-    <a
+    <Link
       className="button--red publish"
-      href=""
+      to='/'
       {...props}
-      />
+    />
   </div>
 
 export default Button

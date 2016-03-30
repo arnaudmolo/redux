@@ -7,7 +7,7 @@ const Home = () =>
   <div>
     <MainJoke />
     <JokeList />
-    <Button>Publish my joke</Button>
+    <Button to='/post'>Publish my joke</Button>
   </div>
 
 export default Home
