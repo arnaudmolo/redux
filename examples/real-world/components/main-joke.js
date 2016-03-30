@@ -1,10 +1,10 @@
 import React from 'react'
 import Lettering from './lettering'
 
-const MainJoke = ({joke = 'There will be a joke there at some point'}) =>
+const MainJoke = ({joke = {content: ''}}) =>
   <div className="joke-container">
     <h1>
-      <Lettering>{joke}</Lettering>
+      <Lettering>{joke.content}</Lettering>
     </h1>
   </div>
 

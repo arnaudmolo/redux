@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import JokeList from './../components/joke-list'
 import * as JokesActions from './../actions/jokes-actions'
 
+import { getJokes } from './../selectors'
+
 class GetJokesContainer extends React.Component {
 
   componentWillMount () {
@@ -10,14 +12,8 @@ class GetJokesContainer extends React.Component {
   }
 
   render (props = this.props) {
-    return <JokeList jokes={props.jokes} />
+    return <JokeList {...props} />
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    jokes: state.jokes.jokes
-  }
-}
-
-export default connect(mapStateToProps, JokesActions)(GetJokesContainer)
+export default connect(state => ({jokes: getJokes(state)}), JokesActions)(GetJokesContainer)

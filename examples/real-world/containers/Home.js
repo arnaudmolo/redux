@@ -1,5 +1,5 @@
 import React from 'react'
-import MainJoke from './../components/main-joke'
+import MainJoke from './../containers/main-joke-container'
 import JokeList from './../containers/joke-list-container'
 import Button from './../components/button'
 

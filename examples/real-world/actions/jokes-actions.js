@@ -18,7 +18,6 @@ export function fetchJokes () {
     try {
       return dispatch(getJokes(await API.getRandomJoke()))
     } catch (e) {
-      console.warn(e)
       return dispatch(fetchJokesError())
     }
   }
