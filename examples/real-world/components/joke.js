@@ -1,5 +1,6 @@
 import React from 'react'
 import color from 'color'
+import { connect } from 'react-redux'
 import cx from 'classnames'
 import stringToColor from './../utils/string-to-color'
 
@@ -34,12 +35,13 @@ function jokeColor (joke) {
   }
 }
 
-export default ({joke, onVoteDown, onVoteUp}) => {
-  const colors = jokeColor(joke)
-  const divider = joke.positiv + joke.negativ || 1
-  const style = {
-    width: ((joke.positiv / divider * 50) + 50) + '%'
+export default connect(null, null, (_, $, {joke}) => {
+  return {
+    joke,
+    colors: jokeColor(joke),
+    divider: joke.positiv + joke.negativ || 1
   }
+})(({joke, onVoteDown, onVoteUp, colors, divider}) => {
   return (
     <div className={cx(
         'card--joke',
@@ -54,8 +56,10 @@ export default ({joke, onVoteDown, onVoteUp}) => {
       </div>
       <div className="card--joke__face--back" style={colors.bg}>
         <div className="card--joke__vote--down" onClick={joke.voted ? false : onVoteDown}></div>
-        <div className="card--joke__vote--up" style={style} onClick={joke.voted ? false : onVoteUp}></div>
+        <div className="card--joke__vote--up"
+          style={{width: ((joke.positiv / divider * 50) + 50) + '%'}}
+          onClick={joke.voted ? false : onVoteUp}></div>
       </div>
     </div>
   )
-}
+})
