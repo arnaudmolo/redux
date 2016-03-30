@@ -20,9 +20,20 @@ function jokes (state = {jokes: [], error: false}, action) {
   return state
 }
 
+function user (state = {}, action) {
+  if (action.type === 'LOGIN') {
+    return {
+      ...action.payload,
+      connected: true
+    }
+  }
+  return state
+}
+
 const rootReducer = combineReducers({
   routing,
-  jokes
+  jokes,
+  user
 })
 
 export default rootReducer

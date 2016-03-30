@@ -1,8 +1,21 @@
+import React from 'react'
 import { connect } from 'react-redux'
 import Post from './../components/post'
 import { postJoke } from './../actions/jokes-actions'
+import Sidebar from '../components/Sidebar'
 
-export default connect(null, {onSubmit: (e, value) => {
+function mapStateToProps (state) {
+  return state.user
+}
+
+export default connect(mapStateToProps, {onSubmit: (e, value) => {
   e.preventDefault()
   return postJoke(value)
-}})(Post)
+}})(props => {
+  console.log('et ben alors')
+  if (props.connected) {
+    return <Post {...props} />
+  } else {
+    return <Sidebar />
+  }
+})

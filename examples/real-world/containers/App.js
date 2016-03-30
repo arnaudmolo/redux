@@ -8,9 +8,9 @@ class App extends Component {
 
   static propTypes = {
     // Injected by React Redux
-    errorMessage: PropTypes.string,
-    resetErrorMessage: PropTypes.func.isRequired,
-    inputValue: PropTypes.string.isRequired,
+    // errorMessage: PropTypes.string,
+    // resetErrorMessage: PropTypes.func.isRequired,
+    // inputValue: PropTypes.string.isRequired,
     // Injected by React Router
     children: PropTypes.node
   }
@@ -33,4 +33,4 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps, {resetErrorMessage})(App)
+export default App
