@@ -1,6 +1,6 @@
 import React from 'react'
 import MainJoke from './../components/main-joke'
-import JokeList from './../components/joke-list'
+import JokeList from './../containers/joke-list-container'
 import Button from './../components/button'
 
 const Home = () =>

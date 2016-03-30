@@ -16,6 +16,7 @@
   "homepage": "http://redux.js.org",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
+    "bluebird": "^3.3.4",
     "classnames": "^2.2.3",
     "color": "^0.11.1",
     "compass-mixins": "github:igosuki/compass-mixins",
