@@ -6,13 +6,20 @@ function fetchJokesError () {
   }
 }
 
+function getJokes (joke) {
+  return {
+    type: 'JOKE-FETCH',
+    payload: joke
+  }
+}
+
 export function fetchJokes () {
   return async function (dispatch, getState) {
     try {
-      const res = await API.getRandomJoke()
-      console.log(res)
+      return dispatch(getJokes(await API.getRandomJoke()))
     } catch (e) {
-      dispatch(fetchJokesError())
+      console.warn(e)
+      return dispatch(fetchJokesError())
     }
   }
 }

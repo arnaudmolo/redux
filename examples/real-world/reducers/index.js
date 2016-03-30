@@ -11,12 +11,18 @@ function jokes (state = {jokes: [], error: false}, action) {
         ...state,
         error: true
       }
+    case 'JOKE-FETCH':
+      return {
+        ...state,
+        jokes: [action.payload, ...state.jokes]
+      }
   }
   return state
 }
 
 const rootReducer = combineReducers({
-  routing
+  routing,
+  jokes
 })
 
 export default rootReducer
