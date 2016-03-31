@@ -4,7 +4,7 @@ import { push } from 'react-router-redux'
 
 import Post from './../components/post'
 import { postJoke } from './../actions/jokes-actions'
-import Sidebar from '../components/Sidebar'
+import UserRegistration from '../components/user-registration'
 
 function mapStateToProps (state) {
   return state.user
@@ -20,5 +20,5 @@ function mapDispatchToProps (dispatch, ownProps) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(props =>
-  props.connected ? <Post {...props} /> : <Sidebar />
+  props.connected ? <Post {...props} /> : <UserRegistration />
 )

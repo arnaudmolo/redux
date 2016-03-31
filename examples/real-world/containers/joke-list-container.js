@@ -5,15 +5,6 @@ import * as JokesActions from './../actions/jokes-actions'
 
 import { getJokes } from './../selectors'
 
-class GetJokesContainer extends React.Component {
-
-  componentWillMount () {
-    this.props.fetchJokes()
-  }
-
-  render (props = this.props) {
-    return <JokeList {...props} />
-  }
-}
+const GetJokesContainer = props => <JokeList {...props} />
 
 export default connect(state => ({jokes: getJokes(state)}), JokesActions)(GetJokesContainer)

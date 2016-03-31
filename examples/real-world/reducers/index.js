@@ -20,11 +20,19 @@ function jokes (state = {jokes: [], error: false}, action) {
   return state
 }
 
-function user (state = {}, action) {
+function user (state = {
+  jokes: []
+}, action) {
   if (action.type === 'LOGIN') {
     return {
       ...action.payload,
       connected: true
+    }
+  }
+  if (action.type === 'FETCH-USER-JOKES') {
+    return {
+      ...state,
+      jokes: action.payload
     }
   }
   return state

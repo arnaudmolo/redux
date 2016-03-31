@@ -60,7 +60,7 @@ export default {
         content: joke,
         date: new Date(),
         language: navigator.language || 'unknown',
-        subscriberId: user.id
+        subscriberId: user.userId
       }
     );
 

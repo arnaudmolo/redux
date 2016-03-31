@@ -25,8 +25,9 @@ export function fetchJokes () {
 
 export function postJoke (joke, user) {
   return async function (dispatch, getState) {
+    const {user} = getState()
     try {
-      return await API.saveJoke(joke, {id: 'molo'})
+      return await API.saveJoke(joke, user)
     } catch (e) {
       console.log('error ?', e);
     } finally {
