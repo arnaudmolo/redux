@@ -5,9 +5,10 @@ import { push } from 'react-router-redux'
 import Post from './../components/post'
 import { postJoke } from './../actions/jokes-actions'
 import UserRegistration from '../components/user-registration'
+import { getUser } from './../selectors'
 
 function mapStateToProps (state) {
-  return state.user
+  return getUser(state)
 }
 
 function mapDispatchToProps (dispatch, ownProps) {

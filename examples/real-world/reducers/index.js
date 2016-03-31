@@ -25,6 +25,7 @@ function user (state = {
 }, action) {
   if (action.type === 'LOGIN') {
     return {
+      ...state,
       ...action.payload,
       connected: true
     }

@@ -1,4 +1,5 @@
 import React from 'react'
+import UserRegistration from '../components/user-registration'
 
 const Joke = ({content}) =>
   <li>
@@ -10,11 +11,10 @@ const JokeList = ({jokes}) =>
     {jokes.map((joke, key) => <Joke key={key} {...joke} />)}
   </ul>
 
-const Sidebar = ({jokes}) => {
-  return (
-      <div className='sidebar'>
-        <JokeList jokes={jokes} />
-      </div>
-  )
-}
+const Sidebar = ({jokes, connected}) =>
+  <div className='sidebar'>
+    <JokeList jokes={jokes} />
+    {connected ? [] : <UserRegistration />}
+  </div>
+
 export default Sidebar
