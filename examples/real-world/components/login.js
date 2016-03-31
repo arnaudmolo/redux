@@ -7,7 +7,7 @@ const Login = ({onSubmit, email, password}) =>
       method="post"
       onSubmit={e => {
         e.preventDefault()
-        onSubmit({email, password})
+        return onSubmit({email, password})
       }}
       className="form isVertical">
       <div className="form__block">

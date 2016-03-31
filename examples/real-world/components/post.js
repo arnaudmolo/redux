@@ -1,11 +1,12 @@
 import React from 'react'
 import Button from './../components/button'
 import Close from './../components/close'
+import Form from './../components/Form'
 
-const Post = ({onSubmit, value}) =>
+const Post = ({onSubmit}, value, target) =>
   <div className="writing">
     <Close />
-    <form onSubmit={e => onSubmit(e, value)}>
+    <Form onSubmit={_ => onSubmit(value)}>
       <textarea
         onChange={e => value = e.nativeEvent.target.value}
         rows="5"
@@ -14,7 +15,7 @@ const Post = ({onSubmit, value}) =>
       <button
         className="button--red publish"
         type="submit">Publish my joke</button>
-    </form>
+    </Form>
   </div>
 
 export default Post
